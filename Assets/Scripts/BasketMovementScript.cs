@@ -6,9 +6,10 @@ public class BasketMovementScript : MonoBehaviour
 {
     public float speed;
     public float leftBoundary, rightBoundry;
-    public float healthyPoints, UnhealthyPoints;
+    public int healthyPoints, UnhealthyPoints;
 
     private int score;
+    public UnityEngine.UI.Text scoreText;
    
     // Start is called before the first frame update
     void Start()
@@ -45,17 +46,25 @@ public class BasketMovementScript : MonoBehaviour
         }
     }
 
+    private void UpdateScore(int amount)
+    {
+        score += amount;
+        scoreText.text = "Score: " + score.ToString();
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Healthy")
         {
             //Add points
-
+            UpdateScore(healthyPoints);
+            Destroy(collision.gameObject);
         }
         else if(collision.gameObject.tag == "Unhealthy")
         {
             //Minus points
-
+            UpdateScore(UnhealthyPoints);
+            Destroy(collision.gameObject);
         }
     }
 

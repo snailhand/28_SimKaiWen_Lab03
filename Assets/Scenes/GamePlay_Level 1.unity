@@ -371,6 +371,7 @@ MonoBehaviour:
   rightBoundry: 7.5
   healthyPoints: 10
   UnhealthyPoints: -5
+  scoreText: {fileID: 1807179516}
 --- !u!65 &749641440
 BoxCollider:
   m_ObjectHideFlags: 0
