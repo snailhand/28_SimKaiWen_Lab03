@@ -9,17 +9,11 @@ public class Spawner : MonoBehaviour
     private float spawndelay=1;
     private int randomInt;
     float positionx;
-   
-
-    
 
     // Start is called before the first frame update
     void Start()
     {
-      
         InvokeRepeating("spawnobject", spawntime, spawndelay);
-
-     
 
     }
 
