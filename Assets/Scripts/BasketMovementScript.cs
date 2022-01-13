@@ -6,6 +6,9 @@ public class BasketMovementScript : MonoBehaviour
 {
     public float speed;
     public float leftBoundary, rightBoundry;
+    public float healthyPoints, UnhealthyPoints;
+
+    private int score;
    
     // Start is called before the first frame update
     void Start()
