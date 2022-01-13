@@ -10,6 +10,11 @@ public class SceneHandler : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void NextLevel()
+    {
+        SceneManager.LoadScene("GamePlay_Level 2");
+    }
+
     public void WinScene()
     {
         SceneManager.LoadScene("GameWinScene");

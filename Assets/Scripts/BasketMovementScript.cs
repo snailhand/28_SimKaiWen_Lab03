@@ -7,6 +7,7 @@ public class BasketMovementScript : MonoBehaviour
     public float speed;
     public float leftBoundary, rightBoundry;
     public int points;
+    public int maxPoints;
 
     private int score;
     public UnityEngine.UI.Text scoreText;
@@ -23,6 +24,11 @@ public class BasketMovementScript : MonoBehaviour
     void Update()
     {
         MoveBasket();
+
+        if(score >= maxPoints && UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "GamePlay_Level 1")
+        {
+            sceneHandler.NextLevel();
+        }
     }
 
     private void MoveBasket()
