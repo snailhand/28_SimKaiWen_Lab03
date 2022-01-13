@@ -13,11 +13,13 @@ public class BasketMovementScript : MonoBehaviour
     public UnityEngine.UI.Text scoreText;
 
     private SceneHandler sceneHandler;
+    private SoundManager soundManager;
 
     // Start is called before the first frame update
     void Start()
     {
         sceneHandler = FindObjectOfType<SceneHandler>();
+        soundManager = FindObjectOfType<SoundManager>();
     }
 
     // Update is called once per frame
@@ -65,12 +67,14 @@ public class BasketMovementScript : MonoBehaviour
         if(collision.gameObject.tag == "Healthy")
         {
             //Add points
+            soundManager.PlaySound(SoundManager.Sounds.Collect_Healthy);
             UpdateScore(points);
             Destroy(collision.gameObject);
         }
         else if(collision.gameObject.tag == "Unhealthy")
         {
             //Minus points
+            soundManager.PlaySound(SoundManager.Sounds.Collect_Unhealthy);
             sceneHandler.LoseScene();
         }
     }

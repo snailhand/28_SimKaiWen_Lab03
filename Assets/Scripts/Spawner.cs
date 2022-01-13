@@ -30,7 +30,9 @@ public class Spawner : MonoBehaviour
         positionx = Random.Range(8f,-8f);
         this.transform.position = new Vector3(positionx,transform.position.y , transform.position.z);
         var spawnedObject = Instantiate(spawnee[randomInt], transform.position, transform.rotation);
-        
+        var soundManager = FindObjectOfType<SoundManager>();
+        soundManager.PlaySound(SoundManager.Sounds.ObjectSpawn);
+
         if(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "GamePlay_Level 2")
         {
             IncreaseObjectSpeed(spawnedObject);
